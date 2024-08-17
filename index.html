@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .content {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button-container #no-button {
+      position: relative;
+    }
+
+    .button:hover {
+      background-color: #FF0000;
+    }
+
+    p {
+      text-align: center;
+      font-size: 18px;
+      margin: 20px;
+    }
+
+    img {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>ANO ANG DAPAT KONG GAWIN?</h1>
+    
+  </div>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDZsOTg2dHZycDBibGxnOGxmY3p2NHZlZnFrb3MyMW4xeGp5MThtcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MZQkUm97KTI1gI8sUj/giphy.gif" height="200" alt="A beautiful image">
+  <div class="button-container">
+    <a class="button" id="yes-button" href="gastos.html">Gumastos</a>
+    <div class="button" id="no-button">Magipon</div>
+  </div>
+
+  <script>
+    const noButton = document.getElementById('no-button');
+
+    function getRandomPosition() {
+      const buttonRect = noButton.getBoundingClientRect();
+      const maxWidth = window.innerWidth - buttonRect.width;
+      const maxHeight = window.innerHeight - buttonRect.height;
+      const randomX = Math.max(0, Math.min(Math.floor(Math.random() * Math.min(maxWidth, 200)), maxWidth - 200));
+      const randomY = Math.max(0, Math.min(Math.floor(Math.random() * Math.min(maxHeight, 200)), maxHeight - 200));
+      return { x: randomX, y: randomY };
+    }
+
+    noButton.addEventListener('click', () => {
+      const newPosition = getRandomPosition();
+      noButton.style.left = newPosition.x + 'px';
+      noButton.style.top = newPosition.y + 'px';
+    });
+  </script>
+</body>
+</html>
